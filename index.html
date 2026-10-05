@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Content - UI Assignment</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Roboto, Arial, sans-serif; }
+body { background:#fff; }
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 20px; position:sticky; top:0; background:#fff; z-index:10;
+  border-bottom:1px solid #ddd;
+}
+.logo { display:flex; align-items:center; gap:20px; font-size:20px; }
+.logo b { color:red; }
+.search { display:flex; width:50%; }
+.search input { flex:1; padding:10px 15px; border:1px solid #ccc; border-radius:20px 0 0 20px; outline:none; }
+.search button { padding:10px 20px; border:1px solid #ccc; border-left:0; border-radius:0 20px 20px 0; background:#f8f8f8; cursor:pointer; }
+.container { display:flex; }
+.sidebar {
+  width:220px; background:#fff; padding:15px 0; height:calc(100vh - 55px);
+  position:sticky; top:55px; overflow-y:auto;
+}
+.sidebar p { padding:10px 20px; cursor:pointer; border-radius:10px; margin:2px 10px; }
+.sidebar p:hover, .sidebar .active { background:#f2f2f2; font-weight:bold; }
+.main { flex:1; background:#f9f9f9; padding:15px; }
+.chips { display:flex; gap:10px; overflow-x:auto; padding-bottom:15px; white-space:nowrap; }
+.chips span { background:#f2f2f2; padding:6px 12px; border-radius:8px; font-size:14px; cursor:pointer; }
+.chips .active-chip { background:#000; color:#fff; }
+.video-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:15px; }
+.card { cursor:pointer; }
+.thumbnail { position:relative; width:100%; border-radius:12px; overflow:hidden; background:#000; }
+.thumbnail video, .thumbnail img { width:100%; height:145px; object-fit:cover; display:block; }
+.duration { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.8); color:#fff; font-size:12px; padding:2px 4px; border-radius:4px; }
+.info { display:flex; gap:10px; padding-top:10px; }
+.info img { width:36px; height:36px; border-radius:50%; }
+.title { font-size:14px; font-weight:500; line-height:18px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.channel { font-size:12px; color:#606060; margin-top:4px; }
+.views { font-size:12px; color:#606060; }
+@media(max-width:768px){ .sidebar{display:none;} .search{width:70%;} }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">☰ <b>▶ YouTube</b> <sup style="font-size:10px;">PK</sup></div>
+  <div class="search"><input type="text" placeholder="Search"><button>🔍</button></div>
+  <div>🔔 👤</div>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <p class="active">🏠 Home</p>
+    <p>🎬 Shorts</p>
+    <p>📺 Subscriptions</p><hr>
+    <p>You > </p>
+    <p>History</p>
+    <p>Your videos</p>
+    <p>Watch Later</p><hr>
+    <p>Explore</p>
+    <p>Trending</p>
+    <p>Music</p>
+    <p>Gaming</p>
+  </div>
+
+  <div class="main">
+    <div class="chips">
+      <span class="active-chip">All</span>
+      <span>Music</span><span>Mixes</span><span>User interface design</span>
+      <span>Nollywood</span><span>Logos</span><span>Graphic design</span>
+      <span>Website</span><span>Computer Science</span>
+    </div>
+
+    <div class="video-grid">
+      <div class="card">
+        <div class="thumbnail">
+          <video poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" controls muted>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          </video>
+          <span class="duration">3:21</span>
+        </div>
+        <div class="info">
+          <img src="https://i.pravatar.cc/100?img=1">
+          <div><div class="title">UI Design Trends 2021</div><div class="channel">DesignSense • 521K views • 5 months ago</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail">
+          <video poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085" controls muted>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+          </video>
+          <span class="duration">3:28</span>
+        </div>
+        <div class="info">
+          <img src="https://i.pravatar.cc/100?img=2">
+          <div><div class="title">Simi - Complete Me | Official Video</div><div class="channel">X3M Music • 3.7M views</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4"><span class="duration">4:38:36</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=3"><div><div class="title">4-Year Medical Doctor (MD) Degree in UK</div><div class="channel">AUC School of Medicine</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1531482615713-2afd690979bc"><span class="duration">12:45</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=4"><div><div class="title">STUBBORN BILLIONAIRES Complete (UGEZU New Movie)</div><div class="channel">Nollywood • 1.2M views</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"><span class="duration">13:04</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=5"><div><div class="title">Linda Osifo and Olakira on the NdaniTGIFShow</div><div class="channel">Ndani TV</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766"><span class="duration">1:56:50</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=6"><div><div class="title">Designing a Complete Brand Identity with Sydney</div><div class="channel">Design Course • 89K views</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f"><span class="duration">8:21</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=7"><div><div class="title">BECOMING A DATA ANALYST | How I Became</div><div class="channel">The Work Life • 56K views</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="thumbnail"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643"><span class="duration">15:20</span></div>
+        <div class="info"><img src="https://i.pravatar.cc/100?img=8"><div><div class="title">7 MISTAKES LADIES MAKE WHEN THEY LIKE A GUY</div><div class="channel">Relationship Tips</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
